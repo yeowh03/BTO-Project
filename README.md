@@ -7,7 +7,7 @@ A role-based Build-To-Order (BTO) Management System that simulates Singapore’s
 ## 👥 Team Members
 
 - **Yeo Wen Hong** - Logic Flow & Coding  
-- **Peng Zixiao** (U2421551L) - Report Writing & Debugging  
+- **Peng Zixiao** - Report Writing & Debugging  
 - **Wong Xiao Yao** - UML and Sequence Diagrams  
 - **Zou Ning** - UML and Sequence Diagrams  
 
