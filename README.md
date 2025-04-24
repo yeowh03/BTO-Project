@@ -121,11 +121,13 @@ A role-based Build-To-Order (BTO) Management System that simulates Singapore’s
 ```
 /src
 │
-├── model/              # Domain classes (Applicant, Project, etc.)
-├── controller/          # Business logic per role
-├── menu/                # CLI Menus per role
-├── Database/            # In-memory data handling
-└── interfaces/          # Role-specific interfaces
-└── auth/               # User Authentication
+├── model/             # Domain classes (Applicant, Project, etc.)
+├── controller/        # Business logic per role
+├── menu/              # CLI Menus per role
+├── Database/          # In-memory data handling
+└── interfaces/        # Role-specific interfaces
+└── auth/              # User Authentication
 └── main               # Main entry point of program
+└── docs               # javadoc
+
 ```
