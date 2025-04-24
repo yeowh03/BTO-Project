@@ -121,9 +121,10 @@ A role-based Build-To-Order (BTO) Management System that simulates Singapore’s
 ```
 /src
 │
-├── entity/              # Domain classes (Applicant, Project, etc.)
+├── model/              # Domain classes (Applicant, Project, etc.)
 ├── controller/          # Business logic per role
 ├── menu/                # CLI Menus per role
-├── repository/          # In-memory data handling
+├── Database/            # In-memory data handling
 └── interfaces/          # Role-specific interfaces
+└── auth/               # User Authentication
 ```
