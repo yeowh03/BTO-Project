@@ -127,4 +127,5 @@ A role-based Build-To-Order (BTO) Management System that simulates Singapore’s
 ├── Database/            # In-memory data handling
 └── interfaces/          # Role-specific interfaces
 └── auth/               # User Authentication
+└── main               # Main entry point of program
 ```
