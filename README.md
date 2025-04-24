@@ -115,3 +115,15 @@ A role-based Build-To-Order (BTO) Management System that simulates Singapore’s
 - Benefits of controller-entity separation and interface use
 
 ---
+
+## 📁 Project Structure (Overview)
+
+```
+/src
+│
+├── entity/              # Domain classes (Applicant, Project, etc.)
+├── controller/          # Business logic per role
+├── menu/                # CLI Menus per role
+├── repository/          # In-memory data handling
+└── interfaces/          # Role-specific interfaces
+```
