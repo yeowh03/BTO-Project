@@ -98,7 +98,7 @@ The **HDB Management System** is a role-based simulation of Singapore’s Build-
 
 ## 📄 Documentation
 
-- **Javadoc** included in project zip
+- **Javadoc** included in BTO/src/docs
 - **Developer Guide**:
   1. Clone the repository
   2. Open project in VSCode or Eclipse
