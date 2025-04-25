@@ -93,9 +93,7 @@ The **HDB Management System** is a role-based simulation of Singapore’s Build-
 - Application submission and withdrawal
 - Officer registration logic
 - Manager approval and report generation
-
-*(See Appendix for test tables and screenshots)*
-
+  
 ---
 
 ## 📄 Documentation
