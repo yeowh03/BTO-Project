@@ -1,120 +1,137 @@
 # HDB Management System
 
-A role-based Build-To-Order (BTO) Management System that simulates Singapore’s HDB BTO application process in a command-line interface. This system was developed for an Object-Oriented Design & Programming (OODP) assignment, incorporating layered architecture and SOLID principles.
+## Team Members
+| Name           | Matriculation Number |
+|----------------|----------------------|
+| Yeo Wen Hong   | U2421146B            |
+| Peng Zixiao    | U2421551L            |
+| Wong Xiao Yao  | U2421644E            |
+| Zou Ning       | U2421398A            |
+
+## 📋 Overview
+
+The **HDB Management System** is a role-based simulation of Singapore’s Build-To-Order (BTO) process. It allows **Applicants**, **Officers**, and **Managers** to interact with BTO projects through a centralized command-line system built in Java. Each user role is assigned specific capabilities, mimicking the real-world BTO application and management experience.
 
 ---
 
-## 👥 Team Members
+## 📌 Features
 
-- **Yeo Wen Hong** - Logic Flow & Coding  
-- **Peng Zixiao** - Report Writing & Debugging  
-- **Wong Xiao Yao** - UML and Sequence Diagrams  
-- **Zou Ning** - UML and Sequence Diagrams  
+### 🔑 Authentication & User Management
+- NRIC-based login with default password (`password`)
+- Change password functionality
+- Role-based access control
 
----
+### 👤 Applicant Capabilities
+- View eligible and visible BTO projects
+- Submit, withdraw, and check status of applications
+- Submit, edit, delete project enquiries
+- View booked flats
 
-## 📚 Table of Contents
+### 🧑‍💼 Officer Capabilities
+- All applicant features
+- Register to handle a project
+- Manage flat availability and bookings
+- Reply to enquiries
+- Generate receipts
 
-- [Chapter 1: Requirement Analysis & Feature Selection](#chapter-1-requirement-analysis--feature-selection)
-- [Chapter 2: System Architecture & Structural Planning](#chapter-2-system-architecture--structural-planning)
-- [Chapter 3: Object-Oriented Design](#chapter-3-object-oriented-design)
-- [Chapter 4: Implementation (Java)](#chapter-4-implementation-java)
-- [Chapter 5: Testing](#chapter-5-testing)
-- [Chapter 7: Reflection & Challenges](#chapter-7-reflection--challenges)
-
----
-
-## Chapter 1: Requirement Analysis & Feature Selection
-
-### 🎯 Key Requirements
-- NRIC-based login with role-based access
-- Role-specific functions:
-  - **Applicants**: Apply/Withdraw BTO, View Projects, Enquiries
-  - **Officers**: Handle Applications, Manage Projects, Booking, Enquiries
-  - **Managers**: Manage Projects, Approvals, Generate Reports
-
-### ✅ Core Features
-- User Authentication and Role-based Menus
-- Flat Booking, Project Visibility, Registration Workflow
-- Repositories for in-memory data persistence
-- Clean command-line interface (CLI)
-
-### 🚫 Excluded
-- GUI/Web-based UI
-- Multi-language Support
+### 👨‍💼 Manager Capabilities
+- Create, edit, delete BTO projects
+- Toggle project visibility
+- Approve/reject officer registrations and applications
+- Generate booking reports
+- Manage enquiries for own projects
 
 ---
 
-## Chapter 2: System Architecture & Structural Planning
+## 🧠 System Architecture
 
-### 🧱 Layers
-- **Entity Layer**: Domain classes (User, Project, Application, etc.)
-- **Controller Layer**: Business logic (ApplicantController, etc.)
-- **Menu Layer**: CLI navigation (ApplicantMenu, etc.)
-- **Repository Layer**: In-memory data storage
+### 🧱 Layered Structure (MVC + Repository)
+- **Entity Layer**: Applicant, Officer, Manager, Project, etc.
+- **Controller Layer**: Logic for each role (e.g. `OfficerController`, `ProjectController`)
+- **Menu Layer (Boundary)**: CLI for interaction (e.g. `ApplicantMenu`, `ManagerMenu`)
+- **Repository Layer**: In-memory data storage per entity type
 
-### 🗺️ Design Choices
-- Role-specific menus
-- MVC pattern for separation of concerns
-- Encapsulation of booking logic under OfficerController
+### 📌 Design Highlights
+- Clear role separation using inheritance (Officer inherits from Applicant)
+- Responsibilities distributed across Controller, Menu, and Model
+- Used Enum classes for status management (`ApplicationStatus`, `RegistrationStatus`)
 
 ---
 
-## Chapter 3: Object-Oriented Design
+## 📐 Object-Oriented Design
 
-### 🧩 Class Modeling
-- **User Roles**: `Applicant`, `Officer`, `Manager` via inheritance
-- **Domain Entities**: `Project`, `Application`, `Enquiry`, `Registration`
-- **Utilities**: Enum types for `Role`, `MaritalStatus`, `UnitType`
-
-### 🛠️ SOLID Principles
-- **SRP**: Separate classes for Menu, Controller, Entity
-- **OCP**: Extend ApplicantController for OfficerController
-- **LSP**: Officers/Managers substitute their parent roles
-- **ISP**: Interfaces per role for cleaner code
+### SOLID Principles in Action
+- **SRP**: Separate controllers, menus, and entities
+- **OCP**: Extendable controllers without modifying base
+- **LSP**: Officers can behave as Applicants
+- **ISP**: Role-specific interfaces
 - **DIP**: Menus depend on interfaces, not implementations
 
+### UML & Sequence Diagrams
+- Attached diagrams demonstrate registration and application workflows, enforcing date, role, and logic constraints.
+
 ---
 
-## Chapter 4: Implementation (Java)
+## 💻 Implementation
 
 - **Language**: Java 17
-- **IDE**: Eclipse / VSCode
+- **IDE**: Visual Studio Code / Eclipse
 - **Version Control**: GitHub
+- **Execution**: Run `Main.java`
 
 ---
 
-## Chapter 5: Testing
+## 🧪 Testing
 
-### 🧪 Test Strategy
-- Manual functional and scenario-based testing
-- Role-specific feature testing
-- All edge cases (e.g., invalid login, project overlaps) covered
+### Strategy
+- Manual functional testing for each major role
+- Simulated realistic workflows and corner cases
+- Verified both valid and invalid inputs
 
-### 📋 Sample Test Cases
-- NRIC/Password validation
-- Application logic for all user roles
-- Booking, Withdrawals, Visibility toggles, Enquiries, etc.
+### Sample Test Cases
+- Login and authentication
+- Application submission and withdrawal
+- Officer registration logic
+- Manager approval and report generation
+
+*(See Appendix for test tables and screenshots)*
 
 ---
 
-## Chapter 7: Reflection & Challenges
+## 📄 Documentation
+
+- **Javadoc** included in project zip
+- **Developer Guide**:
+  1. Clone the repository
+  2. Open project in VSCode or Eclipse
+  3. Run `Main.java`
+
+---
+
+## 💭 Reflection
 
 ### ✅ What Went Well
-- Clear role separation and clean architecture
-- Full implementation of required features
-- Effective use of OO principles and layered design
+- Achieved core and optional features
+- Strong separation of concerns and modularity
+- Applied SOLID principles effectively
 
-### ❗ What Could Be Improved
-- Lack of automated/unit testing
-- Time constraints affected UI-decoupling and deeper planning
+### ⚠️ Areas for Improvement
+- GUI was not implemented due to time constraints
+- Initial controller designs tightly coupled with UI logic
 
-### 🎓 Lessons Learned
-- Importance of planning and mapping real-world scenarios
-- Trade-offs between simplicity and scalability
-- Benefits of controller-entity separation and interface use
+### 👥 Individual Contributions
+- **Wen Hong**: Logic flow, coding  
+- **Zixiao**: Report, debugging  
+- **Xiao Yao & Zou Ning**: UML diagrams, sequence logic
 
 ---
+
+## 📚 Lessons Learned
+
+- Translating real-world problems into OOP models
+- Importance of controller-entity separation
+- SOLID principles improve long-term maintainability
+- Planning flow and data structures early reduces rework
 
 ## 📁 Project Structure (Overview)
 
